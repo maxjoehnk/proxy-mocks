@@ -1,0 +1,75 @@
+{
+  "name": "proxy-mocks",
+  "version": "0.1.0",
+  "description": "Provide mocks utilizing the Proxy API",
+  "main": "index.js",
+  "repository": "https://github.com/maxjoehnk/proxy-mocks",
+  "author": "Max Jöhnk <maxjoehnk@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "clean": "rimraf '*.{d.ts,js}'",
+    "prebuild": "npm run clean",
+    "build": "tsc --outDir .",
+    "test": "jest",
+    "lint": "eslint src --ext .ts",
+    "prepare": "npm run check",
+    "prepack": "npm run check",
+    "format": "dprint fmt",
+    "format.check": "dprint check",
+    "check": "npm run build && npm run lint && npm run test"
+  },
+  "files": [
+    "README.md",
+    "jest.js",
+    "sinon.js",
+    "mock.js",
+    "index.js"
+  ],
+  "peerDependencies": {
+    "jest": "^26.6.3",
+    "sinon": "^10.0.1"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.22",
+    "@types/sinon": "^9.0.11",
+    "@typescript-eslint/eslint-plugin": "^4.21.0",
+    "@typescript-eslint/parser": "^4.21.0",
+    "eslint": "^7.23.0",
+    "jest": "^26.6.3",
+    "rimraf": "^3.0.2",
+    "sinon": "^10.0.1",
+    "ts-jest": "^26.5.4",
+    "typescript": "^4.2.4"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "ts",
+      "js",
+      "json"
+    ],
+    "testMatch": [
+      "<rootDir>/src/**/*.test.ts"
+    ],
+    "preset": "ts-jest",
+    "globals": {
+      "ts-jest": {
+        "tsconfig": "tsconfig.test.json"
+      }
+    }
+  },
+  "eslintConfig": {
+    "root": true,
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+      "@typescript-eslint"
+    ],
+    "extends": [
+      "eslint:recommended",
+      "plugin:@typescript-eslint/recommended"
+    ],
+    "rules": {
+      "@typescript-eslint/no-explicit-any": 0,
+      "@typescript-eslint/ban-types": 0
+    }
+  }
+}
