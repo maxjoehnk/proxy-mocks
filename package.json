@@ -21,9 +21,13 @@
   "files": [
     "README.md",
     "jest.js",
+    "jest.d.ts",
     "sinon.js",
+    "sinon.d.ts",
     "mock.js",
-    "index.js"
+    "mock.d.ts",
+    "index.js",
+    "index.d.ts"
   ],
   "peerDependencies": {
     "jest": "^26.6.3",
