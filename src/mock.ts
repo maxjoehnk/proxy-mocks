@@ -46,6 +46,12 @@ export function createMockImplementationWithStubFunction<TStub>(stubFunction: ()
           if (key === "then") {
             return undefined;
           }
+          if (key === "constructor") {
+            return clazz?.prototype.constructor;
+          }
+          if (key === Symbol.toStringTag) {
+            return clazz?.name;
+          }
           const name: keyof TObject = key as any;
           if (target[name] === undefined) {
             target[name] = stubFunction() as any;
