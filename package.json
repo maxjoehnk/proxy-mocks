@@ -16,7 +16,8 @@
     "prepack": "npm run check",
     "format": "dprint fmt",
     "format.check": "dprint check",
-    "check": "npm run build && npm run lint && npm run test"
+    "check": "npm run build && npm run lint && npm run test",
+    "changelog": "git cliff --output CHANGELOG.md"
   },
   "files": [
     "README.md",
