@@ -7,12 +7,14 @@ export type RecursivePartial<T> = Partial<
   }
 >;
 
+type Writeable<T> = { -readonly [P in keyof T]: T[P] };
+
 /**
  * Mock object with generated stubs.
  *
  * There is no guarantee whether a property is actually a stub or not as it can be overridden at creation time.
  */
-export type IMock<TObject extends MockableObject, TStub> = TObject & { [P in keyof TObject]: TStub };
+export type IMock<TObject extends MockableObject, TStub> = Writeable<TObject> & { [P in keyof TObject]: TStub };
 
 /**
  * Generate new mock class using given {@param stubFunction} to generate stubs

@@ -15,4 +15,12 @@ describe("Mock", () => {
 
     expect(name).toBe("[object TestServiceToMock]");
   });
+
+  test("assigning a value to a readonly property should compile", () => {
+    const mock: IMock<TestServiceToMock, any> = Mock.of(TestServiceToMock);
+
+    mock.value = "mocked value";
+
+    expect(mock.value).toBe("mocked value");
+  });
 });
