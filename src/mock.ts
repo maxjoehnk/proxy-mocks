@@ -14,7 +14,16 @@ type Writeable<T> = { -readonly [P in keyof T]: T[P] };
  *
  * There is no guarantee whether a property is actually a stub or not as it can be overridden at creation time.
  */
-export type IMock<TObject extends MockableObject, TStub> = Writeable<TObject> & { [P in keyof TObject]: TStub };
+export type IMock<TObject extends MockableObject, TStub> = TObject & { [P in keyof TObject]: TStub };
+
+/**
+ * Mock object with generated stubs. Only contains public properties but allows to set readonly or getter properties.
+ *
+ * There is no guarantee whether a property is actually a stub or not as it can be overridden at creation time.
+ */
+export type IWriteableMock<TObject extends MockableObject, TStub> =
+  & Writeable<TObject>
+  & { [P in keyof TObject]: TStub };
 
 /**
  * Generate new mock class using given {@param stubFunction} to generate stubs

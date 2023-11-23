@@ -3,6 +3,7 @@ import { createMockImplementationWithStubFunction, MockableObject, MockPrototype
 import * as base from "./mock";
 
 export type IMock<TObject extends MockableObject> = base.IMock<TObject, vitest.Mock>;
+export type IWriteableMock<TObject extends MockableObject> = base.IWriteableMock<TObject, vitest.Mock>;
 
 // TODO: each test framework specific way should be tested in it's own environment
 // This fixes the current issue where we can't import the vitest globals as they conflict with jest globals
